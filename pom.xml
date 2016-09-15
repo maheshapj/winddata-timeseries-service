@@ -34,6 +34,14 @@
 		<acs-spring-security-extensions.version>5.1.0</acs-spring-security-extensions.version>
 		<uaa-token-lib.version>2.0.0</uaa-token-lib.version>
 	</properties>
+	
+	<repositories>
+      <repository>
+         <id>artifactory.external</id>
+         <name>GE external repository</name>
+         <url>https://artifactory.predix.io/artifactory/PREDIX-EXT</url>
+      </repository>
+</repositories>
 
 	<dependencies>
 		<dependency>

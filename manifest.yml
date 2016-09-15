@@ -1,26 +1,31 @@
 #inherit: base-manifest.yml 
 applications:
-  - name: <yourname>-winddata-timeseries-service
+  - name: glass-winddata-timeseries-service
     buildpack: java_buildpack
     path: target/winddata-timeseries-service-2.0.2.jar
     memory: 256M
     services:
-      - <your-name>-secure-uaa-instance
-      - <your-name>-timeseries-instance
+      - glassauth
+      - glasstimeseries
       #- <your-name>-acs-instance
 env:
-    predix_timeseries_name : <your-name>-timeseries-instance
-    predix_oauthRestHost : {UAA Host URI from Vcaps  example 93cfba56-e9bd-431d-a55e-5a75c6638698.predix-uaa.run.aws-usw02-pr.ice.predix.io}
-    predix_oauthClientId : <your-client-id>:<your client secret>
+    SPRING_PROFILES_ACTIVE : cloud
+    predix_timeseries_name : glasstimeseries
+    predix_oauthRestHost : f2b04d0d-26d5-4790-9dc7-9ddc33e5af6c.predix-uaa.run.aws-usw02-pr.ice.predix.io
+    predix_oauthClientId : app-client-id:glasssecret
     trustedIssuerIdsRegexPattern : ^http://(.*\\.)?.predix-uaa.run.aws-usw02-pr.ice/oauth/token$
-    predix_connectionTimeout : 5000
-    predix_socketTimeout : 5000
-    redix_poolMaxSize: 200
+    predix_connectionTimeout : 20000
+    predix_socketTimeout : 20000
+    predix_poolMaxSize: 200
     defaultMaxPerRoute: 25
     predix_wspool_maxIdle : 5
     predix_wspool_maxActive : 5
-    predix_wspool_maxWait : 8000
-    predix_wspool_maxInstances : 5
+    predix_wspool_maxWait : 20000
+    predix_wspool_maxInstances : 10
+    clientId: app-client-id
+    #clientId: {Enter client ID, e.g. app-client-id, and place it here}
+    base64ClientCredential: YXBwLWNsaWVudC1pZDpnbGFzc3NlY3JldA==
+
    #acsServiceInstanceName: <your-name>-acs-instance
    #clientId : <your-client-id>
    #clientSecret: <your client secret>
