@@ -9,7 +9,7 @@ applications:
       - glasstimeseries
       #- <your-name>-acs-instance
 env:
-    SPRING_PROFILES_ACTIVE : cloud
+    #SPRING_PROFILES_ACTIVE : cloud
     predix_timeseries_name : glasstimeseries
     predix_oauthRestHost : f2b04d0d-26d5-4790-9dc7-9ddc33e5af6c.predix-uaa.run.aws-usw02-pr.ice.predix.io
     predix_oauthClientId : app-client-id:glasssecret
@@ -22,9 +22,9 @@ env:
     predix_wspool_maxActive : 5
     predix_wspool_maxWait : 20000
     predix_wspool_maxInstances : 10
-    clientId: app-client-id
+    #clientId: app-client-id
     #clientId: {Enter client ID, e.g. app-client-id, and place it here}
-    base64ClientCredential: YXBwLWNsaWVudC1pZDpnbGFzc3NlY3JldA==
+    #base64ClientCredential: YXBwLWNsaWVudC1pZDpnbGFzc3NlY3JldA==
 
    #acsServiceInstanceName: <your-name>-acs-instance
    #clientId : <your-client-id>
